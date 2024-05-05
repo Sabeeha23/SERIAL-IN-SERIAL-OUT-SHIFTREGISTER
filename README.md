@@ -25,18 +25,52 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Initialize the shift register to a known state.
+
+2. Input a bit serially into the shift register.
+
+3. Shift the contents of the register one position to the right.
+
+4. Output the shifted bit from the last stage of the register.
+
+5. Repeat steps 2-4 for each bit you want to input and shift.
+
 
 **PROGRAM**
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming.
 
-Developed by: RegisterNumber:
+Developed by: Sabeeha Shaik
+
+RegisterNumber: 212223230176
 
 */
+```
+module EXP10(clk, sin, q);
+input clk;
+input sin;
+output [3:0] q;
+reg [3:0] q;
+always @(posedge clk)
+begin
+q[0] <= sin;
+q[1] <= q[0];
+q[2] <= q[1];
+q[3] <= q[2];
+end
+endmodule
+```
 
 **RTL LOGIC FOR SISO Shift Register**
 
+![Screenshot 2024-05-05 211704](https://github.com/Sabeeha23/SERIAL-IN-SERIAL-OUT-SHIFTREGISTER/assets/150231876/c5d02389-d48f-4909-8709-79d174b37867)
+
+
 **TIMING DIGRAMS FOR SISO Shift Register**
 
+![image](https://github.com/Sabeeha23/SERIAL-IN-SERIAL-OUT-SHIFTREGISTER/assets/150231876/1dd1bd9c-c99c-485e-9dc8-376ae75e3a61)
+
+
 **RESULTS**
+
+SISO Shift Register using verilog and validating their functionality using their functional tables has successful execution of the program.
